@@ -1,18 +1,21 @@
-h1{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    text-align: center;
+    margin-top:10px;
+    margin-bottom:10px;
     color: #212529;
 }
-#logo-daily{
+#logo-daily,
+#question-delete{
     color: red;
 }
 #log-in-icon{
     margin-left: 10px;
 }
-h2{
-    text-align: center;
-    margin-top:20px;
-    margin-bottom:20px;
-}
-
 .box{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px;
 }
@@ -61,7 +64,7 @@ h2{
 .post-detail{
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     margin-top: 20px;
 }
 

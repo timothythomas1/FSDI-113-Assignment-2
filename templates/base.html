@@ -41,14 +41,13 @@
                             <i class="fa-solid fa-user-astronaut"></i> {{ user.username }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" aria-current="page" href="{% url 'new' %}">Create Post</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" aria-current="page" href="{% url 'password_change' %}">Password Change</a>
-                            </li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                            <li><a class="dropdown-item" aria-current="page" href="{% url 'new' %}">Create Post</a></li>
+                            <li><a class="dropdown-item" aria-current="page" href="{% url 'draft_list' %}">My Drafts</a></li>
+                            <li><a class="dropdown-item" aria-current="page" href="{% url 'archived_list' %}">My Archived</a></li>
+                            <li><a class="dropdown-item" aria-current="page" href="{% url 'password_change' %}">Password Change</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" aria-current="page" href="{% url 'admin:index' %}"><strong>Admin </strong></a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
                         </ul>
                     </li>
                     {% endif %} 
@@ -60,7 +59,12 @@
                 {% if user.is_authenticated %}
                 {% else %}
                 <div class="author-options">
-                    <a id="log-in-icon" href="{% url 'login' %}" class="card-link btn btn-primary btn-md active"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                    <a id="log-in-icon" 
+                       href="{% url 'login' %}" 
+                       class="card-link btn btn-primary btn-md active"
+                    >
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
                 </div>
                 {% endif %}
             </div>

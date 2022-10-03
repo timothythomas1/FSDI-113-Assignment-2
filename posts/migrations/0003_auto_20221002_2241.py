@@ -3,11 +3,11 @@
 from unicodedata import name
 from django.db import migrations
 
-def populate_status(apps, schemaditor):
+def populate_status(apps, schemaeditor):
     entries = {
         'published': 'A post that appears on the site (to all users).',
         'draft': 'A post that is being worked on and is not ready to be viewed by others.',
-        'archived': 'A post that no longer appears on the site.'
+        'archived': 'A post that no longer appears on the main site.'
     }                      #👇Name of app 👇Name of class
     Status = apps.get_model("posts", "Status") 
     for name, desc in entries.items():
@@ -20,4 +20,6 @@ class Migration(migrations.Migration):
         ("posts", "0002_status"),
     ]
 
-    operations = [migrations.RunPython(populate_status)] # pulls form function we created above
+    operations = [
+        migrations.RunPython(populate_status)
+    ] # Calls form function we created above and populate the database

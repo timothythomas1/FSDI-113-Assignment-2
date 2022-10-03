@@ -5,9 +5,11 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Logged Out :)</h1>
-    <p>Thank's for visiting my website!</p>
+    <h1>Successfully Logged Out</h1>
 
-    <a href="{% url 'login' %}">Click here</a> to log back in.
+    <div class="container">
+        <p>Thank's for visiting my website!</p>
+        <a href="{% url 'login' %}">Click here</a> to log back in.
+    </div>
 
 {% endblock content %}

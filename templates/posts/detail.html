@@ -8,7 +8,7 @@
     <div class="post-detail">
         <h1 id="title">{{ post.title }}</h1>
         <h4 id="subtitle" class="card-subtitle mb-2 text-muted">{{ post.subtitle }}</h4>
-        <strong id="author">Created by: {{ post.author }} | on: {{ post.created_on }}</strong>
+        <strong id="author">AUTHOR: {{ post.author }} | CREATED ON: {{ post.created_on }}</strong>
         <p id="body">{{ post.body }}</p>
         {% if user == post.author %}
             <div class="author-options">
