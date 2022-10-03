@@ -29,7 +29,19 @@ class ArchivedPostListView(ListView):
     # Refer to class video for more information: FSDI 112-2 C30 @ 02hr:29min
     def get_context_data(self, **kwargs): #Keyword arguments. All list views have this get_context_data() method. 
         context = super().get_context_data(**kwargs)
-        pending_status = Status.objects.get(name="archived") # The get method returns records that matched the name = "draft". you can also use it like this, .get(name="draft")
+        pending_status = Status.objects.get(name="archived") # The get method returns records that matched the name = "archived". you can also use it like this, .get(name="archived")
+        context["post_list"] = Post.objects.filter(author=self.request.user # Ensuring that the data is returned based on the author logged in.
+                                          ).filter(status=pending_status
+                                          ).order_by("created_on"
+                                          ).reverse()
+        return context
+class PublishedPostListView(ListView):
+    template_name = "posts/list.html"
+    model = Post 
+    # Refer to class video for more information: FSDI 112-2 C30 @ 02hr:29min
+    def get_context_data(self, **kwargs): #Keyword arguments. All list views have this get_context_data() method. 
+        context = super().get_context_data(**kwargs)
+        pending_status = Status.objects.get(name="published") # The get method returns records that matched the name = "published". you can also use it like this, .get(name="published")
         context["post_list"] = Post.objects.filter(author=self.request.user # Ensuring that the data is returned based on the author logged in.
                                           ).filter(status=pending_status
                                           ).order_by("created_on"

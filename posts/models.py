@@ -16,6 +16,12 @@ class Archived(models.Model):
 
     def __str__(self):
         return self.name
+class Published(models.Model):
+    name = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     title = models.CharField(max_length=256)
@@ -34,6 +40,12 @@ class Post(models.Model):
     )
     archived = models.ForeignKey(
         Archived,
+        on_delete=models.CASCADE,
+        blank=True, # This allows the status field be null for existing records.
+        null=True   # This allows the status field be null for existing records.
+    ) 
+    published = models.ForeignKey(
+        Published,
         on_delete=models.CASCADE,
         blank=True, # This allows the status field be null for existing records.
         null=True   # This allows the status field be null for existing records.
