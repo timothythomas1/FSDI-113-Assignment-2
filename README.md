@@ -1,4 +1,4 @@
-# FSDI_112_Competency_Report_Blog
+# FSDI-113-Assignment-2
 
 # Link to Heroku hosted blog web app 
-https://calm-basin-25908.herokuapp.com/# FSDI-113-Assignment-2
+

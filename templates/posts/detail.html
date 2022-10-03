@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detail
+{% endblock title %}
+
+{% block content %}
+    <div class="post-detail">
+        <h1 id="title">{{ post.title }}</h1>
+        <h4 id="subtitle" class="card-subtitle mb-2 text-muted">{{ post.subtitle }}</h4>
+        <strong id="author">Created by: {{ post.author }} | on: {{ post.created_on }}</strong>
+        <p id="body">{{ post.body }}</p>
+        {% if user == post.author %}
+            <div class="author-options">
+                <a href="{% url 'confirm_delete' post.id %}" class="card-link btn btn-danger btn-sm"><i class="fa-solid fa-dumpster"></i></a>
+                <a href="{% url 'edit' post.id %}" class="card-link btn btn-success btn-sm"><i class="fa-regular fa-pen-to-square"></i></a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}
